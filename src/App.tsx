@@ -1,17 +1,18 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Header } from "./ui/Header";
-import { Home } from "./ui/Home";
+import { Routes, Route } from 'react-router-dom';
+import { Header } from './ui/routes/Header';
+import { Home } from './ui/routes/Home';
 import styles from './App.module.css';
 
 function App() {
-    return (
-        <Router>
-            <div className={styles.App}>
-                <Header />
-                <Home />
-            </div>
-        </Router>
-    )
+	return (
+		<div className={styles.App}>
+			<Routes>
+				<Route path="/" element={<Header />}>
+					<Route index element={<Home />} />
+				</Route>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
