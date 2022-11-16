@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo/deadful.svg';
 import clapper from '../../../assets/icon/clapperboard.svg';
 import tv from '../../../assets/icon/tv.svg';
@@ -10,12 +10,17 @@ export function Header() {
 	return (
 		<>
 			<header className="header">
-				<Link className="logo-container" to="/">
+				<NavLink className="logo-container" to="/">
 					<img src={logo} alt="dreadful Tomatoes logo" />
-				</Link>
+				</NavLink>
 
 				<div className="nav-links-container">
-					<Link className="nav-link" to="/movies">
+					<NavLink
+						className="nav-link"
+						to="/movies"
+						style={({ isActive }) => {
+							return { backgroundColor: isActive ? 'red' : 'black' };
+						}}>
 						<img
 							width={40}
 							src={clapper}
@@ -23,8 +28,13 @@ export function Header() {
 							alt="clapper"
 						/>
 						Movies
-					</Link>
-					<Link className="nav-link" to="/series">
+					</NavLink>
+					<NavLink
+						className="nav-link"
+						to="/series"
+						style={({ isActive }) => {
+							return { backgroundColor: isActive ? 'red' : 'black' };
+						}}>
 						<img
 							width={40}
 							src={tv}
@@ -32,14 +42,16 @@ export function Header() {
 							alt="tv"
 						/>
 						Series
-					</Link>
+					</NavLink>
 				</div>
 			</header>
+
 			<Outlet />
+
 			<footer className="footer">
-				<Link className="logo-container" to="/">
+				<NavLink className="logo-container" to="/">
 					<img src={logo} alt="dreadful Tomatoes logo" />
-				</Link>
+				</NavLink>
 				<div className="buttons-container">
 					<img
 						width={150}

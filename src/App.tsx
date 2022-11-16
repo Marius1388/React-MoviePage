@@ -9,6 +9,8 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Header />}>
 					<Route index element={<Home />} />
+					<Route path="movies" element={<p>movies</p>} />
+					<Route path="series" element={<p>series</p>} />
 				</Route>
 			</Routes>
 		</div>
