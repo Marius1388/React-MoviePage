@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import FilterBar from '../../components/filter/Filter';
 import { getData } from '../../../services/DataService';
 import CardList from '../../components/cardList/CardList';
+import Pagination from '../../components/Pagination/Pagination';
 import {
 	ProgramType,
 	DigitalContent,
@@ -18,7 +19,13 @@ export function Movies() {
 	const filterYearHandler = (event) => {
 		setYearFilter(event);
 	};
-	let [moviesFetched, setMoviesFetched] = useState<DigitalContent[]>([]);
+	const [moviesFetched, setMoviesFetched] = useState<DigitalContent[]>([]);
+
+	const [currentPage, setCurrentPage] = useState(1);
+	const cardsPerPage = 10;
+	const lastCardIndex = currentPage * cardsPerPage;
+	const firstCardIndex = lastCardIndex - cardsPerPage;
+	const currentMovies = filteredMovies.slice(firstCardIndex, lastCardIndex);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -46,6 +53,7 @@ export function Movies() {
 			}
 		});
 		setFilteredMovies(filtered);
+		setCurrentPage(1);
 	}, [moviesFetched, textFilter, yearFilter]);
 
 	return (
@@ -56,7 +64,14 @@ export function Movies() {
 				yearFilter={yearFilter}
 			/>
 			<h2>Popular Movies</h2>
-			<CardList movies={filteredMovies} />
+			<CardList movies={currentMovies} />
+
+			<Pagination
+				totalObjects={filteredMovies.length}
+				objectsPerPage={cardsPerPage}
+				setCurrentPage={setCurrentPage}
+				currentPage={currentPage}
+			/>
 		</div>
 	);
 }

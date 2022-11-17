@@ -1,8 +1,14 @@
 import './Card.styles.scss';
 
 const MAX_LENGTH = 100;
+type PropTypes = {
+	title: string;
+	year: number;
+	description: string;
+	poster: string;
+};
 
-const Card = ({ title, year, description, poster }) => {
+const Card = ({ title, year, description, poster }: PropTypes) => {
 	return (
 		<div className="card-container">
 			<div

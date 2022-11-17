@@ -1,6 +1,9 @@
 import { ProgramType } from '../types/types'
+
+const URL = 'https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/data.json'
+
 export const getData = async (programType?: ProgramType) => {
-    const response = await fetch('https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/data.json')
+    const response = await fetch(URL)
     const data = await response.json()
     let result: any
     if (!programType) {
@@ -13,7 +16,7 @@ export const getData = async (programType?: ProgramType) => {
     return result
 }
 export const getHomePageResults = async () => {
-    const response = await fetch('https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/data.json')
+    const response = await fetch(URL)
     const data = await response.json()
     const movie = data.entries.filter(obj =>
         obj.title.toLowerCase().includes('avengers')

@@ -1,6 +1,7 @@
 import Card from '../card/Card';
 import './CardList.styles.scss';
 import { DigitalContent } from '../../../types/types';
+import { useState } from 'react';
 
 interface CardListProps {
 	movies: DigitalContent[];
