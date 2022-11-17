@@ -1,0 +1,13 @@
+.filters-container{
+   max-width: 450px;
+   display: flex;
+   flex-direction: row;
+   .textFilter{
+      margin:10px ;
+      width: 20ch;
+   }
+   .year-filter{
+      margin: 10px;
+      width: 180px;
+   }
+}

@@ -1,4 +1,4 @@
-type ProgramType = 'movies' | 'series'
+import { ProgramType } from '../types/types'
 export const getData = async (programType?: ProgramType) => {
     const response = await fetch('https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/data.json')
     const data = await response.json()
@@ -7,7 +7,7 @@ export const getData = async (programType?: ProgramType) => {
         result = data.entries
     } else {
         result = data.entries.filter(obj => {
-            obj.programType === programType
+            return obj.programType === programType
         })
     }
     return result
