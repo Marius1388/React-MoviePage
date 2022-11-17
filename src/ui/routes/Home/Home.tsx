@@ -5,6 +5,9 @@ import tv from '../../../assets/icon/tv.svg';
 import { getHomePageResults } from '../../../services/DataService';
 import { Link } from 'react-router-dom';
 
+const avengers = require('../../../assets/posters/avengers.png');
+const got = require('../../../assets/posters/GOT.png');
+
 export function Home() {
 	let [data, setData] = useState<any[]>([]);
 	useEffect(() => {
@@ -19,20 +22,20 @@ export function Home() {
 		<div className="home">
 			{data.map((obj, index) => {
 				return (
-					<div key={index} className="poster">
-						<img src={obj.images.posterArt.url} alt={obj.title} />
-						{obj.programType === 'movies' ? (
-							<Link className="banner" to="/movies">
-								<img width={20} src={clapper} alt="clapper" />
-								<p>Movies</p>
-							</Link>
-						) : (
-							<Link className="banner" to="/series">
-								<img width={20} src={tv} alt="tv" />
-								<p>Series</p>
-							</Link>
-						)}
-					</div>
+					<Link key={index} className="poster" to={`/${obj.programType}`}>
+						<img
+							src={obj.programType === 'movies' ? avengers : got}
+							alt={obj.title}
+						/>
+						<div className="banner">
+							<img
+								width={20}
+								src={obj.programType === 'movies' ? clapper : tv}
+								alt={obj.programType === 'movies' ? 'clapper' : 'tv'}
+							/>
+							<p>{obj.programType}</p>
+						</div>
+					</Link>
 				);
 			})}
 		</div>

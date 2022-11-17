@@ -55,4 +55,13 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+	.footer {
+    position:sticky;
+		.buttons-container{
+      width: 300px;
+    }
+	}
+}
+
 
