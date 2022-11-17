@@ -27,6 +27,16 @@ export function Movies() {
 	const firstCardIndex = lastCardIndex - cardsPerPage;
 	const currentMovies = filteredMovies.slice(firstCardIndex, lastCardIndex);
 
+	const handleLeftArrow = () => {
+		if (currentPage < 2) return;
+		setCurrentPage((prevPage) => prevPage - 1);
+	};
+	const handleRightArrow = () => {
+		if (currentPage > Math.ceil(filteredMovies.length / cardsPerPage) - 1)
+			return;
+		setCurrentPage((prevPage) => prevPage + 1);
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const res: DigitalContent[] = await getData(ProgramType.movies);
@@ -71,6 +81,8 @@ export function Movies() {
 				objectsPerPage={cardsPerPage}
 				setCurrentPage={setCurrentPage}
 				currentPage={currentPage}
+				handleLeftArrow={handleLeftArrow}
+				handleRightArrow={handleRightArrow}
 			/>
 		</div>
 	);

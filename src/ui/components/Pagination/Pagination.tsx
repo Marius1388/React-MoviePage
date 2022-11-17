@@ -1,12 +1,14 @@
-import React from 'react';
-
 import './Pagination.styles.scss';
+import left from '../../../assets/icon/left-chevron.svg';
+import right from '../../../assets/icon/right-chevron.svg';
 
 const Pagination = ({
 	totalObjects,
 	objectsPerPage,
 	setCurrentPage,
 	currentPage,
+	handleLeftArrow,
+	handleRightArrow,
 }) => {
 	let pages: number[] = [];
 	for (let i = 1; i <= Math.ceil(totalObjects / objectsPerPage); i++) {
@@ -15,6 +17,12 @@ const Pagination = ({
 
 	return (
 		<div className="pagination">
+			<img
+				src={left}
+				alt="decrease navigation page"
+				onClick={handleLeftArrow}
+				className={currentPage === 1 ? 'disabled' : ''}
+			/>
 			{pages.map((page, index) => {
 				return (
 					<button
@@ -25,6 +33,17 @@ const Pagination = ({
 					</button>
 				);
 			})}
+
+			<img
+				src={right}
+				alt="increase navigation page"
+				onClick={handleRightArrow}
+				className={
+					currentPage === Math.ceil(totalObjects / objectsPerPage)
+						? 'disabled'
+						: ''
+				}
+			/>
 		</div>
 	);
 };

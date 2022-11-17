@@ -10,18 +10,23 @@
        font-weight: 600;
        font-size: 16px;
        margin: 0 10px;
-       border-radius: 6px;
+       border-radius: 20px;
+       border-color: transparent;
        cursor: pointer;
        transition: all 0.3s ease;
-       background: transparent;
-       color: #eee;
-       border-color: #eee;
-       :active {
-           font-weight: 900;
-           border-color: #101010;
-           background: #ffe400;
-           color: #101010;
-       }
+       background: #C42521;
+       opacity: 60%;
+       color: white;
+    }
+    img{
+        cursor:pointer;
+    }
+    .disabled{
+     opacity:50%;
+     cursor:not-allowed;
+    }
+    .active {
+        opacity: 100%;
     }
 }
 
