@@ -1,0 +1,14 @@
+.container{
+    padding-top: 1vh;
+    padding-bottom: 20vh;
+    margin:0;
+    height: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h2{
+        color:white;
+    }
+}

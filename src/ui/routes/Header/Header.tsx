@@ -45,8 +45,9 @@ export function Header() {
 					</NavLink>
 				</div>
 			</header>
-
-			<Outlet />
+			<div className="outlet">
+				<Outlet />
+			</div>
 
 			<footer className="footer">
 				<NavLink className="logo-container" to="/">

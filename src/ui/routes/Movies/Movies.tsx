@@ -9,6 +9,8 @@ import {
 	InputChangeEventHandler,
 } from '../../../types/types';
 
+import './Movies.styles.scss';
+
 export function Movies() {
 	const [textFilter, setTextFilter] = useState<string>('');
 	const [yearFilter, setYearFilter] = useState<Date>();

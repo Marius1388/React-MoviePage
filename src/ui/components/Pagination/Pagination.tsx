@@ -19,6 +19,7 @@ const Pagination = ({
 		<div className="pagination">
 			<img
 				src={left}
+				width={16}
 				alt="decrease navigation page"
 				onClick={handleLeftArrow}
 				className={currentPage === 1 ? 'disabled' : ''}
@@ -36,6 +37,7 @@ const Pagination = ({
 
 			<img
 				src={right}
+				width={16}
 				alt="increase navigation page"
 				onClick={handleRightArrow}
 				className={

@@ -1,7 +1,12 @@
 .cardList-container {
-	width: 80vw;
+	position: relative;
+	width: 70vw;
+	place-self: center ;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	// grid-template-rows: repeat(2, 1fr);
+	gap: 15px;
+	h2{
+		margin:auto;
+	}
 }
 	
