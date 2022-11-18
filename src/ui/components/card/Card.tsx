@@ -11,6 +11,12 @@ type PropTypes = {
 const Card = ({ title, year, description, poster }: PropTypes) => {
 	return (
 		<div className="card-container">
+			<div
+				className="background-image"
+				style={{
+					backgroundImage: `url(${poster})`,
+				}}
+			/>
 			<div className="card-body-container">
 				<h2>{title}</h2>
 				<p>{year}</p>
@@ -19,12 +25,6 @@ const Card = ({ title, year, description, poster }: PropTypes) => {
 					MAX_LENGTH,
 				)}...`}</p>
 			</div>
-			<div
-				className="background-image"
-				style={{
-					backgroundImage: `url(${poster})`,
-				}}
-			/>
 		</div>
 	);
 };

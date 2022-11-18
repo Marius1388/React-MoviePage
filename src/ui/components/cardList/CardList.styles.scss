@@ -1,7 +1,6 @@
 .cardList-container {
 	position: relative;
-	width: 70vw;
-	place-self: center ;
+	margin: 0 5vw;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 15px;
@@ -9,4 +8,6 @@
 		margin:auto;
 	}
 }
+
+
 	
