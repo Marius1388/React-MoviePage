@@ -1,15 +1,80 @@
-.filters-container{
-   background-color: red;
-   position:relative;
-   width: 100vw;
-   display: flex;
-   flex-direction: row;
-   .textFilter{
-      margin:10px ;
-      width: 20ch;
+.filters-container {
+   padding: 0 5vw;
+   margin: 0 auto;
+	background-color: red;
+	position: relative;
+	width: 100vw;
+	height: 40px;
+	display: inline;
+	input {
+   margin: 10px auto;
+
+		border: 1px solid red;
+		border-radius: 4px;
+	}
+
+   textarea:focus, input:focus{
+    outline: none;
+}
+	.textFilter {
+		width: 60vw;
+       background: url("../../../assets//icon/search.svg") no-repeat left;
+       padding-left: 30px;
+       background-color: white;
+       background-size: 16px;
+	}
+	.yearFilter {
+		margin-left: 10px ;
+      background: url("../../../assets//icon/calendar.svg") no-repeat left;
+       padding-left: 30px;
+       background-color: white;
+       background-size: 16px;
+       padding-right: calc(5vw - 16px);
+
+	}
+
+	.react-datepicker {
+		border: none;
+		
+	}
+	.react-datepicker-popper {
+		padding-top: 0;
+	}
+
+	.react-datepicker-wrapper,
+	.react-datepicker__input-container,
+	.react-datepicker__input-container input {
+		width: 20vw;
+	}
+
+	.react-datepicker__year--container {
+		.react-datepicker__header.react-datepicker-year-header {
+			background-color: red;
+			color: white;
+		}
+		color: red;
+	}
+
+	.react-datepicker__year-text.react-datepicker__year-text--keyboard-selected,
+	.react-datepicker__year-text.react-datepicker__year-text--selected {
+		background-color: red;
+		color: white;
+	}
+
+	.react-datepicker__triangle {
+		&::before {
+			border-bottom-color: transparent !important;
+		}
+		&::after {
+			border-bottom-color: red !important;
+		}
+	}
+
+	.react-datepicker-popper[data-placement^='bottom-end']{
+
+      transform: translate3d(-15vw, 32px, 0px)!important;
    }
-   .year-filter{
-      margin: 10px;
-      width: 180px;
-   }
+		.react-datepicker__triangle::after {
+		left: 80px;
+	}
 }

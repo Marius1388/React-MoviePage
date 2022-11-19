@@ -1,6 +1,8 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Filter.styles.scss';
+import tv from '../../../assets/icon/tv.svg';
+import { url } from 'inspector';
 
 const FilterBar = ({ filterTitleHandler, filterYearHandler, yearFilter }) => {
 	return (
@@ -12,13 +14,13 @@ const FilterBar = ({ filterTitleHandler, filterYearHandler, yearFilter }) => {
 				onChange={filterTitleHandler}
 			/>
 			<DatePicker
-				className="year-filter"
+				className="yearFilter"
 				placeholderText="Search by Release Year..."
+				popperPlacement="bottom-end"
 				selected={yearFilter}
 				onChange={filterYearHandler}
 				showYearPicker
 				dateFormat="yyyy"
-				isClearable
 			/>
 		</div>
 	);
