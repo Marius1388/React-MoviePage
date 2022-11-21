@@ -9,46 +9,50 @@ import {
 	InputChangeEventHandler,
 } from '../../../types/types';
 
-import './Movies.styles.scss';
+import './DigitalContent.styles.scss';
 
-export function Movies() {
+interface DigitalContentProps {
+	programType: ProgramType;
+}
+
+export function DigitalContentComponent({ programType }: DigitalContentProps) {
 	const [textFilter, setTextFilter] = useState<string>('');
 	const [yearFilter, setYearFilter] = useState<Date>();
-	const [filteredMovies, setFilteredMovies] = useState<DigitalContent[]>([]);
+	const [filteredContent, setFilteredContent] = useState<DigitalContent[]>([]);
 	const filterTitleHandler: InputChangeEventHandler = (event) => {
 		setTextFilter(event.target.value);
 	};
 	const filterYearHandler = (event) => {
 		setYearFilter(event);
 	};
-	const [moviesFetched, setMoviesFetched] = useState<DigitalContent[]>([]);
+	const [contentFetched, setContentFetched] = useState<DigitalContent[]>([]);
 
 	const [currentPage, setCurrentPage] = useState(1);
 	const cardsPerPage = 10;
 	const lastCardIndex = currentPage * cardsPerPage;
 	const firstCardIndex = lastCardIndex - cardsPerPage;
-	const currentMovies = filteredMovies.slice(firstCardIndex, lastCardIndex);
+	const currentMovies = filteredContent.slice(firstCardIndex, lastCardIndex);
 
 	const handleLeftArrow = () => {
 		if (currentPage < 2) return;
 		setCurrentPage((prevPage) => prevPage - 1);
 	};
 	const handleRightArrow = () => {
-		if (currentPage > Math.ceil(filteredMovies.length / cardsPerPage) - 1)
+		if (currentPage > Math.ceil(filteredContent.length / cardsPerPage) - 1)
 			return;
 		setCurrentPage((prevPage) => prevPage + 1);
 	};
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const res: DigitalContent[] = await getData(ProgramType.movies);
-			setMoviesFetched(res);
+			const res: DigitalContent[] = await getData(programType);
+			setContentFetched(res);
 		};
 		fetchData();
-	}, []);
+	}, [programType]);
 
 	useEffect(() => {
-		const filtered = moviesFetched.filter((movie) => {
+		const filtered = contentFetched.filter((movie) => {
 			if (textFilter !== '' || textFilter != null) {
 				if (yearFilter != null) {
 					return (
@@ -64,9 +68,9 @@ export function Movies() {
 				}
 			}
 		});
-		setFilteredMovies(filtered);
+		setFilteredContent(filtered);
 		setCurrentPage(1);
-	}, [moviesFetched, textFilter, yearFilter]);
+	}, [contentFetched, textFilter, yearFilter]);
 
 	return (
 		<div className="container">
@@ -79,7 +83,7 @@ export function Movies() {
 			<CardList movies={currentMovies} />
 
 			<Pagination
-				totalObjects={filteredMovies.length}
+				totalObjects={filteredContent.length}
 				objectsPerPage={cardsPerPage}
 				setCurrentPage={setCurrentPage}
 				currentPage={currentPage}

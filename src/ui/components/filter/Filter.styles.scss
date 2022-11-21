@@ -1,15 +1,16 @@
 .filters-container {
    padding: 0 5vw;
    margin: 0 auto;
-	background-color: red;
+	background-color: #C42521;
 	position: relative;
 	width: 100vw;
 	height: 40px;
 	display: inline;
 	input {
    margin: 10px auto;
+   // font-size: 14px;
 
-		border: 1px solid red;
+		border: 1px solid #C42521;
 		border-radius: 4px;
 	}
 
@@ -49,24 +50,33 @@
 
 	.react-datepicker__year--container {
 		.react-datepicker__header.react-datepicker-year-header {
-			background-color: red;
+			background-color: #C42521;
 			color: white;
 		}
-		color: red;
 	}
+
+   .react-datepicker__year-wrapper{
+      max-width: 240px
+   }
 
 	.react-datepicker__year-text.react-datepicker__year-text--keyboard-selected,
 	.react-datepicker__year-text.react-datepicker__year-text--selected {
-		background-color: red;
+		background-color: #C42521;
 		color: white;
+      border-radius: 0px;
+
+      
 	}
+   .react-datepicker__year-text{
+      padding: 5px ;
+   }
 
 	.react-datepicker__triangle {
 		&::before {
 			border-bottom-color: transparent !important;
 		}
 		&::after {
-			border-bottom-color: red !important;
+			border-bottom-color: #C42521 !important;
 		}
 	}
 

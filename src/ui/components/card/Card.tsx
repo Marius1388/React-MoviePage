@@ -1,6 +1,5 @@
 import './Card.styles.scss';
 
-const MAX_LENGTH = 100;
 type PropTypes = {
 	title: string;
 	year: number;
@@ -20,10 +19,8 @@ const Card = ({ title, year, description, poster }: PropTypes) => {
 			<div className="card-body-container">
 				<h2>{title}</h2>
 				<p>{year}</p>
-				<p className="description">{`${description.substring(
-					0,
-					MAX_LENGTH,
-				)}...`}</p>
+
+				<p className="description">{description}</p>
 			</div>
 		</div>
 	);

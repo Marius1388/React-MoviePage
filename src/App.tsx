@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './ui/routes/Header';
 import { Home } from './ui/routes/Home';
-import { Movies } from './ui/routes/Movies/Movies';
 import styles from './App.module.css';
+import { ProgramType } from './types/types';
+import { DigitalContentComponent } from './ui/routes/DigitalContent/DigitalContent';
 
 function App() {
 	return (
@@ -10,8 +11,22 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Header />}>
 					<Route index element={<Home />} />
-					<Route path="movies" element={<Movies />} />
-					<Route path="series" element={<p>series</p>} />
+					<Route
+						path="movies"
+						element={
+							<DigitalContentComponent
+								programType={ProgramType.movies}
+							/>
+						}
+					/>
+					<Route
+						path="series"
+						element={
+							<DigitalContentComponent
+								programType={ProgramType.series}
+							/>
+						}
+					/>
 				</Route>
 			</Routes>
 		</div>

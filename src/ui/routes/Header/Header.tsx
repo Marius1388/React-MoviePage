@@ -19,7 +19,7 @@ export function Header() {
 						className="nav-link"
 						to="/movies"
 						style={({ isActive }) => {
-							return { backgroundColor: isActive ? 'red' : 'black' };
+							return { backgroundColor: isActive ? '#C42521' : 'black' };
 						}}>
 						<img
 							width={40}
@@ -33,7 +33,7 @@ export function Header() {
 						className="nav-link"
 						to="/series"
 						style={({ isActive }) => {
-							return { backgroundColor: isActive ? 'red' : 'black' };
+							return { backgroundColor: isActive ? '#C42521' : 'black' };
 						}}>
 						<img
 							width={40}
