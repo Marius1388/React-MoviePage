@@ -72,6 +72,10 @@ export function DigitalContentComponent({ programType }: DigitalContentProps) {
 		setCurrentPage(1);
 	}, [contentFetched, textFilter, yearFilter]);
 
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
 	return (
 		<div className="container">
 			<FilterBar
@@ -79,7 +83,7 @@ export function DigitalContentComponent({ programType }: DigitalContentProps) {
 				filterYearHandler={filterYearHandler}
 				yearFilter={yearFilter}
 			/>
-			<h2>Popular Movies</h2>
+			<h2>Popular {capitalizeFirstLetter(programType)}</h2>
 			<CardList movies={currentMovies} />
 
 			<Pagination

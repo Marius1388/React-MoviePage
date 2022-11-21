@@ -24,6 +24,5 @@ export const getHomePageResults = async () => {
     const series = data.entries.filter(obj =>
         obj.title.toLowerCase().includes('thrones')
     )[0]
-
     return [movie, series]
 }

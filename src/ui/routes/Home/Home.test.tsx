@@ -1,8 +1,21 @@
-import { render, screen } from '@testing-library/react';
-import { Home } from "./Home";
+import { render, screen, act } from '@testing-library/react';
+import { Home } from './Home';
+import { BrowserRouter } from 'react-router-dom';
 
-test('Home renders code section', () => {
-  render(<Home />);
-  const codeMessage = screen.getByText("src/App.tsx");
-  expect(codeMessage).toBeInTheDocument();
+jest.mock('../../../services/DataService.ts');
+
+beforeEach(async () => {
+	await act(async () => {
+		render(<Home />, { wrapper: BrowserRouter });
+	});
+});
+
+test('Home renders with correct images and links', async () => {
+	const avengers = screen.getByAltText('Avengers: Endgame');
+	expect(avengers).toBeInTheDocument();
+	expect(avengers.closest('a')).toHaveAttribute('href', '/movies');
+
+	const got = screen.getByAltText('Game of Thrones');
+	expect(got).toBeInTheDocument();
+	expect(got.closest('a')).toHaveAttribute('href', '/series');
 });
