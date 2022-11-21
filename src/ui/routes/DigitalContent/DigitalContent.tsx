@@ -31,7 +31,7 @@ export function DigitalContentComponent({ programType }: DigitalContentProps) {
 	const cardsPerPage = 10;
 	const lastCardIndex = currentPage * cardsPerPage;
 	const firstCardIndex = lastCardIndex - cardsPerPage;
-	const currentMovies = filteredContent.slice(firstCardIndex, lastCardIndex);
+	const currentContent = filteredContent.slice(firstCardIndex, lastCardIndex);
 
 	const handleLeftArrow = () => {
 		if (currentPage < 2) return;
@@ -84,7 +84,11 @@ export function DigitalContentComponent({ programType }: DigitalContentProps) {
 				yearFilter={yearFilter}
 			/>
 			<h2>Popular {capitalizeFirstLetter(programType)}</h2>
-			<CardList movies={currentMovies} />
+			{currentContent.length === 0 ? (
+				<p className="nothing">Nothing to show...</p>
+			) : (
+				<CardList content={currentContent} />
+			)}
 
 			<Pagination
 				totalObjects={filteredContent.length}

@@ -4,14 +4,14 @@ import { DigitalContent } from '../../../types/types';
 import { useState } from 'react';
 
 interface CardListProps {
-	movies: DigitalContent[];
+	content: DigitalContent[];
 }
 
-const CardList = ({ movies }: CardListProps) => {
+const CardList = ({ content }: CardListProps) => {
 	return (
 		<>
 			<div className="cardList-container">
-				{movies?.map(
+				{content?.map(
 					({ title, releaseYear, description, images }, index) => {
 						return (
 							<Card
